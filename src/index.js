@@ -1,5 +1,6 @@
 import { addTask, deleteTask, updateTask } from "./task";
 import { renderTasks } from "./ui";
+import confetti from "canvas-confetti";
 
 document.addEventListener("DOMContentLoaded", () =>{
     //Hacemos visible la lista de tareas
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     });
 
+    
     //Agregar el evento para los botones
     document.getElementById("task-list").addEventListener("click", (e) => {
         if(e.target.classList.contains("delete")) {
@@ -32,6 +34,18 @@ document.addEventListener("DOMContentLoaded", () =>{
         if(e.target.classList.contains("toggle")) {
             const taskId = e.target.parentElement.getAttribute("data-id");
             updateTask(taskId);
+            
+            if(e.target.innerText ==="Completar") {
+                confetti({
+                   /* particleCount: 100,
+                    spread: 70,
+                    origin: {y: 0.6}*/
+                    emojis: ['🦄'],
+                    emojiSize: 100,
+                    confettiNumber: 30,
+                })
+            }
+
             renderTasks();
         }
 

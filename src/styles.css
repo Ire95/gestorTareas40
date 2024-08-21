@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Danfo&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poetsen+One&display=swap');
+
 /*Estilo generales */
 body{
-    font-family: Arial, sams-serif;
+    font-family: "Poetsen One", sans-serif;
     background-color: #f4f4f4;
+    background-image: url("./imyour.jpg");
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -12,10 +15,44 @@ body{
 
 /*Estilos para el contenedor principal*/
 #app {
-    background-color: white;
+    width: 400px;
+    height: 500px;
+    background-color: #808080;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#app h1 {
+    display: flex;
+    justify-content: center;
+   
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: .3 linear;
+    color: transparent;
+    -webkit-text-stroke: 2px #542344;
+    background-image: linear-gradient(to left,#542344 rgb(180, 19, 108),black, rgb(35, 31, 31));
+    background-size: 200%;
+    -webkit-background-clip: text;
+    animation: move 30s linear infinite;
+}
+
+@keyframes move {
+    100% {
+        background-position: 2000px 0;
+    }
+}
+
+#app h1:hover {
+    color: #542344;
+    text-shadow: 0 0 10px rgba(153, 10, 98, 0.5),
+                 0 0 20px rgb(153, 0, 0, .5),
+                 0 0 40px rgb(153, 0, 0, .5),
+                 0 0 80px rgb(153, 0, 0, .5),
+                 0 0 160px rgb(153, 0, 0, .5),
+                 0 0 320px rgb(153, 0, 0, .5);
 }
 
 /*Estilos para el formulario*/
@@ -35,11 +72,17 @@ input {
 /*Estilo al boton*/
 button{
     padding: 5px 8px;
-    background-color: #007bff;
-    color: white;
+    background-color: #D8BFAA;
+    color: #542344;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+   
+}
+
+button:active {
+    transform: scale(0.96);
 }
 
 /*Estilos para la lista*/
@@ -50,17 +93,32 @@ ul {
 
 /*Estilos para el elemto de la lista*/
 li {
-    background-color: #f4f4f4;
+    background-color: #EBF5EE;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #111111;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 300ms ease-in-out;
 }
+
+li:hover > :not(:hover){
+    opacity: .4;
+}
+
 
 /*Estilos para el elemento completado de la lista*/
 li.completed {
     text-decoration: line-through;
     color: #888;
 }
+
+.delete {
+    color: #542344;
+}
+
+.toggle {
+    color:#542344;
+}
+
